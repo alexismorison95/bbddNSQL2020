@@ -10,4 +10,4 @@ https://hub.docker.com/_/redis
 
 # Como ejecutar redis-cli
 
-> $ docker exec -it { nombre bbdd } redis-cli 
+> $ docker exec -it **nombre bbdd** redis-cli 
