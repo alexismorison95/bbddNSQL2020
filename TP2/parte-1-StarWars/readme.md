@@ -14,7 +14,7 @@ const client = redis.createClient(6379, 'redis');
 # Como hacer la receta
 
 1. Crear Dockerfile
-    >
+    
         From node:latest
 
         WORKDIR /api
@@ -22,7 +22,7 @@ const client = redis.createClient(6379, 'redis');
         COPY api/ .
 
 2. Crear docker-compose.yml
-    >
+    
         web:
             build: ./
             command: sh -c 'npm install && node server.js'
@@ -39,5 +39,10 @@ const client = redis.createClient(6379, 'redis');
                 - "6379:6379"
 3. Crear .dockerignore
 
-### Luego ejecutar
+## Luego ejecutar
 > $ docker-compose up
+
+
+# Cliente
+
+El cliente sera hecho en Angular. Una vez montado el contenedor abrir el navegador en http://localhost:3000/
