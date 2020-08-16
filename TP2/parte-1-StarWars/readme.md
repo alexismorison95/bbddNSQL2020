@@ -3,6 +3,14 @@
 https://dockertips.com/utilizando-docker-compose
 
 
+# Importante
+Para poder conectar Redis con Node dentro del contenedor
+
+```javascript
+const client = redis.createClient(6379, 'redis');
+```
+
+
 # Como hacer la receta
 
 1. Crear Dockerfile
@@ -33,10 +41,3 @@ https://dockertips.com/utilizando-docker-compose
 
 ### Luego ejecutar
 > $ docker-compose up
-
-# Importante
-Para poder conectar Redis con Node 
-
-```javascript
-const client = redis.createClient(6379, 'redis');
-```
