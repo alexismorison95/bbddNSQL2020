@@ -37,11 +37,18 @@ const client = redis.createClient(6379, 'redis');
             image: redis
             ports:
                 - "6379:6379"
+
 3. Crear .dockerignore
+
+        /client
 
 ## Ejecutar contenedor
 
-Dirigirse a la ruta /TP2/parte-1-StarWars/codigo y ejecutar el siguiente comando:
+Dirigirse a la ruta
+
+        /TP2/parte-1-StarWars/codigo 
+
+y ejecutar el siguiente comando:
 
 > $ docker-compose up
 
@@ -49,5 +56,3 @@ Dirigirse a la ruta /TP2/parte-1-StarWars/codigo y ejecutar el siguiente comando
 # Cliente
 
 El cliente sera hecho en Angular. Una vez montado el contenedor abrir el navegador en http://localhost:3000/
-
-sudo apt-get install chrome-gnome-shell
