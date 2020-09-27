@@ -1,32 +1,24 @@
-const redis = require('redis');
 const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
+const routes = require('./routes');
+
 
 // Instancio express
 const app = express();
-
 app.set('port', process.env.PORT || 3000);
 
 
-// Redis
-const client = redis.createClient(6379, 'redis');
-
-client.on("connect", () => {
-    console.log('Conectado a redis');
-});
-
-// Inserto un valor en redis
-client.set("key", "value", redis.print);
-
-// Leo un valor de redis
-client.get("key", redis.print);
+// Middlewares
+app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 
 // Rutas
-app.get('/', (req, res) => {
-    return res.send('Hello world');
-});
+app.use('/api', routes);
 
 
 app.listen(app.get('port'), () => {
-    console.log(`Server listening on port ${app.get('port')}`);
+    console.log(`Server listening on http://localhost:${app.get('port')}/api`);
 });
