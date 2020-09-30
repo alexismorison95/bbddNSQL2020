@@ -4,11 +4,14 @@ const controllers = require('./controllers');
 
 const router = express.Router();
 
-router.post('/agregar-personaje', controllers.agregarPersonaje)
+router.post('/:episodio/:personaje', controllers.agregarPersonaje)
 
-router.get('/listar-personajes/:episodio', controllers.listarPersonajes)
+router.get('/:episodio', controllers.listarPersonajes)
 
-router.delete('/eliminar-personaje', controllers.eliminarPersonaje)
+router.delete('/:episodio/:personaje', controllers.eliminarPersonaje)
+
+// Ruta para enviar el cliente Angular
+router.get('/', controllers.clienteAngular);
 
 
 module.exports = router;

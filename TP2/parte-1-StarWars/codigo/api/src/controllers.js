@@ -6,8 +6,8 @@ const db = clientRedis();
 exports.agregarPersonaje = (req, res) => {
 
     const parametros = {
-        episodio: req.body.episodio, 
-        personaje: req.body.personaje
+        episodio: req.params.episodio, 
+        personaje: req.params.personaje
     }
 
     db.lpush(parametros.episodio, parametros.personaje, (err, reply) => {
@@ -43,8 +43,8 @@ exports.listarPersonajes = (req, res) => {
 exports.eliminarPersonaje = (req, res) => {
 
     const parametros = {
-        episodio: req.body.episodio, 
-        personaje: req.body.personaje
+        episodio: req.params.episodio, 
+        personaje: req.params.personaje
     }
 
     db.lrem(parametros.episodio, 0, parametros.personaje, (err, reply) => {
@@ -58,4 +58,9 @@ exports.eliminarPersonaje = (req, res) => {
             );
         }
     });
+}
+
+exports.clienteAngular = (req, res) => {
+
+    res.sendFile(path.join(__dirname + '/dist/client/index.html'));
 }

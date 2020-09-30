@@ -1,0 +1,14 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: black;
+    color: white;
+    border-color: rgb(117, 117, 117);
+    text-align: center;
+}

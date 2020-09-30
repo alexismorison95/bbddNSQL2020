@@ -9,6 +9,10 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 
+// Para enviar el cliente angular
+app.use(express.static(__dirname + '/dist/client')) 
+
+
 // Middlewares
 app.use(express.json());
 app.use(morgan('dev'));

@@ -1,0 +1,14 @@
+
+<div class="container">
+    <div class="cards">
+        
+        <div *ngFor="let ruta of rutasFotos; let i = index" class="card" style="width: 15rem;">
+            <img src="{{ruta}}" class="card-img-top img" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Episodio {{i + 1}}</h5>
+                <a class="btn btn-dark" (click)="verPersonajes(i + 1)">Ver personajes</a>
+            </div>
+        </div>
+
+    </div>
+</div>
