@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../servicios/api.service';
 
 @Component({
   selector: 'app-personajes',
@@ -8,17 +9,52 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PersonajesComponent implements OnInit {
 
-  personajes = ['1', '2', '3'];
+  personajes: any;
   episodio: string = "";
 
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService
+    ) { }
+
 
   ngOnInit(): void {
 
     this.episodio = this.route.snapshot.paramMap.get('id');
 
-    console.log(this.episodio);
-      
+    this.listarPersonajes();
   }
 
+
+  listarPersonajes() {
+
+    this.api.listarPersonajes(this.episodio).subscribe(res => {
+
+      this.personajes = res;
+    });
+  }
+
+
+  agregarPersonaje(event: any) {
+    
+    this.api.agregarPersonaje(this.episodio, event.target.value).subscribe(res => {
+
+      console.log(res);
+      event.target.value = ""
+  
+      this.listarPersonajes();
+    });
+  }
+
+
+  eliminarPersonaje(personaje: string) {
+    
+    this.api.eliminarPersonaje(this.episodio, personaje).subscribe(res => {
+
+      console.log(res);
+      
+      this.listarPersonajes();
+    });
+  }
 }

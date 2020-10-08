@@ -20,10 +20,13 @@ export class EpisodiosComponent implements OnInit {
     "../../assets/ep9.jpg"
   ];
 
+
   constructor(private router: Router) { }
+
 
   ngOnInit(): void {
   }
+
 
   verPersonajes(episodio: string) {
 

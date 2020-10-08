@@ -1,0 +1,22 @@
+.list-group {
+    width: 30rem;
+    margin: auto;
+}
+
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.list-group-item {
+    background: black;
+    color: white;
+    border-color: rgb(117, 117, 117);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group {
+    margin-top: 1rem;
+}

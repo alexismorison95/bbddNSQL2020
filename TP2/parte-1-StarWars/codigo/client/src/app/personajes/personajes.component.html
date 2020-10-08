@@ -2,7 +2,25 @@
 <div class="container">
 
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let personaje of personajes">{{personaje}}</li>
+
+        <li class="list-group-item" *ngFor="let personaje of personajes">
+
+            {{ personaje | titlecase }}
+            <button type="button" class="btn btn-outline-danger btn-sm" 
+                (click)="eliminarPersonaje(personaje)">Eliminar</button>
+        
+        </li>
+        
+        <li class="list-group-item">
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Ingrese nuevo personaje y presione Enter" 
+                    aria-label="Ingrese nuevo personaje y presione Enter" aria-describedby="button-addon2"
+                    (keyup.enter)="agregarPersonaje($event)">
+            </div>
+            
+        </li>
+
     </ul>
     
 </div>
