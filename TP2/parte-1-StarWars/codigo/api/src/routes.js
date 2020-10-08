@@ -10,8 +10,5 @@ router.get('/:episodio', controllers.listarPersonajes)
 
 router.delete('/:episodio/:personaje', controllers.eliminarPersonaje)
 
-// Ruta para enviar el cliente Angular
-router.get('/', controllers.clienteAngular);
-
 
 module.exports = router;

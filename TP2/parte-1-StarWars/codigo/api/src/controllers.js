@@ -59,8 +59,3 @@ exports.eliminarPersonaje = (req, res) => {
         }
     });
 }
-
-exports.clienteAngular = (req, res) => {
-
-    res.sendFile(path.join(__dirname + '/dist/client/index.html'));
-}
