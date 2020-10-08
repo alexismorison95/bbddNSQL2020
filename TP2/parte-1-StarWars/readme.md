@@ -55,4 +55,5 @@ y ejecutar el siguiente comando:
 
 # Cliente
 
-El cliente sera hecho en Angular. Una vez montado el contenedor abrir el navegador en http://localhost:3000/
+Una vez ejecutado el contenedor, visitar el siguiente link para ver el cliente:
+> http://localhost:3000/
