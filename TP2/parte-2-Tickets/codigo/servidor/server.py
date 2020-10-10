@@ -12,8 +12,7 @@ def conexionRedis():
 
     try:
         if conexion.ping():
-            print("Conectado a Redis")
-            print()
+            print("\nConectado a Redis\n")
     
     except ValueError:
         print(ValueError)

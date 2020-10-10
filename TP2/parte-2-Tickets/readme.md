@@ -1,9 +1,9 @@
-# Parte 2, Redis + Flask
+# Parte 2 Redis + Flask
 
 Hay que instalar Flask y Redis en la PC.
 
 Luego instalar conexion python-redis:
-> $ pip3 install redis
+> $ sudo pip3 install redis
 
 # Tener en cuenta
 
