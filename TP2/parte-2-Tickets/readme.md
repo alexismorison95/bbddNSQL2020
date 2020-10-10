@@ -1,9 +1,15 @@
 # Parte 2 Redis + Flask
 
-Hay que instalar Flask y Redis en la PC.
+Hay que instalar Redis en la PC.
+    
+    $ sudo apt-get update
+    $ sudo apt install redis-server
 
-Luego instalar conexion python-redis:
-> $ sudo pip3 install redis
+
+Luego instalar:
+
+    $ sudo pip3 install flask
+    $ sudo pip3 install redis
 
 # Tener en cuenta
 
@@ -22,3 +28,9 @@ if __name__ == "__main__":
 
     app.run(debug=True)
 ```
+
+# Objetivo
+
+Redis + Flask funcionando en contenedor Docker.
+
+Mirar: https://github.com/alexismorison95/bbddNSQL2020/blob/master/TP2/parte-1-StarWars/readme.md
