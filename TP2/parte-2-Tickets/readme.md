@@ -30,8 +30,6 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-# Objetivo
+# Cliente
 
-Redis + Flask funcionando en contenedor Docker.
-
-Mirar: https://github.com/alexismorison95/bbddNSQL2020/blob/master/TP2/parte-1-StarWars/readme.md
+Cliente angular en produccion: http://localhost:5000/
