@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="centrado">
+
+        <table class="table table-striped table-hover table-bordered ">
+            <thead class="cabecera">
+                <tr>
+                    <th scope="col"># Ticket</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fila" *ngFor="let ticket of vendidos">
+                    <td>{{ ticket[0] }}</td>
+                    <td>$ {{ ticket[1] }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

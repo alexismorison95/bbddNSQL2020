@@ -1,0 +1,21 @@
+.centrado {
+    width: 30rem;
+    margin: auto;
+}
+
+.table {
+    margin-bottom: 2rem;
+}
+
+.cabecera {
+    text-align: center
+}
+
+.fila {
+    text-align: center;
+}
+
+.act {
+    margin-top: 2rem;
+    margin-bottom: 0.3rem;
+}

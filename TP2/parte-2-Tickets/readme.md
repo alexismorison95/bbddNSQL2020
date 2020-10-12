@@ -10,6 +10,7 @@ Luego instalar:
 
     $ sudo pip3 install flask
     $ sudo pip3 install redis
+    $ sudo pip3 install flask_cors
 
 # Tener en cuenta
 

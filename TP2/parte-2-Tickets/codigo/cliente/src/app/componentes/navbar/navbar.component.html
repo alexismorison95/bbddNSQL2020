@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="../../../assets/billete.png" alt="Tickets" class="img-ticket">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <span>&nbsp;&nbsp;&nbsp;</span>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <a class="nav-item nav-link" routerLink="/disponibles" routerLinkActive="active">Disponibles</a>
+            <a class="nav-item nav-link" routerLink="/reservados" routerLinkActive="active">Reservados</a>
+            <a class="nav-item nav-link" routerLink="/comprados" routerLinkActive="active">Comprados</a>
+
+        </ul>
+    </div>
+
+    <div class="form-inline my-2 my-lg-0">
+        Reiniciar Tickets: &nbsp;&nbsp;
+        <input class="form-control form-control-sm mr-sm-2 input" placeholder="Cantidad" 
+            aria-label="Cantidad" type="number" min="1" #cantidad>
+        <button class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="button"
+            (click)="reiniciar(cantidad)">Aceptar</button>
+    </div>
+</nav>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="centrado">
+
+        <button type="button" class="btn btn-outline-primary btn-sm float-right act" 
+            (click)="listarDisponibles()"><i class="fa fa-refresh"></i></button>
+
+        <table class="table table-striped table-hover table-bordered ">
+            <thead class="cabecera">
+                <tr>
+                    <th scope="col"># Ticket</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ticket of disponibles" class="fila">
+                    <td>{{ ticket[0] }}</td>
+                    <td>$ {{ ticket[1] }}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm"
+                            (click)="reservar(ticket[0])">Reservar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
