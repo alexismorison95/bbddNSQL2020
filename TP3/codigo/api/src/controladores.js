@@ -1,13 +1,6 @@
 const clientRedis = require('./bbdd');
 const db = clientRedis();
 
-const rubros = [
-    'Cervecerias', 
-    'Farmacias', 
-    'Universidades',
-    'Centro de Emergencias',
-    'Supermercados'
-];
 
 /* 
 Funcion que dado un rubro y un radio en km, junto con tu latitud y longuitud
@@ -61,25 +54,29 @@ exports.distANegocio = (req, res) => {
     // Cargo en distancia el negocio pasado por el cliente, necesito su posicion
     db.geopos(parametros.rubro, parametros.negocio, (err, reply) => {
 
-        db.geoadd('distancia', reply[0][0], reply[0][1], parametros.negocio);
-    });
+        // Cargo en distancia la pos del negocio
+        db.geoadd('distancia', reply[0][0], reply[0][1], parametros.negocio, (err, reply) => {
 
-    // Calculo la distancia del usuario al negocio
-    db.geodist('distancia', 'usuario', parametros.negocio, 'km', (err, reply) => {
+            // Calculo la distancia
+            db.geodist('distancia', 'usuario', parametros.negocio, 'km', (err, reply) => {
 
-        // Al no tener Async Await es la unica forma de hacer funcionar esto
-        if (reply == null) {
-            
-            this.distANegocio(req, res);
-        } 
-        else {
-            res.status(200).json(reply);
-        }
+                res.status(200).json(reply);
+            });
+        });
     });
 }
 
 
 //inicializacion de bbdd
+
+const rubros = [
+    'Cervecerias', 
+    'Farmacias', 
+    'Universidades',
+    'Centro de Emergencias',
+    'Supermercados'
+];
+
 exports.iniciarBBDD = (req, res) => {
 
     db.flushdb();
