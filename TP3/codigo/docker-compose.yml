@@ -1,0 +1,16 @@
+web:
+  build: ./
+  command: sh -c 'npm install && node src/server.js'
+  ports: 
+    - '3000:3000'
+  volumes:
+    - /home/alexis/Escritorio/BBDDNSQL/TP3/codigo/api:/api
+  links:
+    - "db:redistp3"
+
+db:
+  image: redis
+  ports:
+    - "6378:6379"
+
+# Cambiamos el puerto ya que tenemos redis instalado en local
