@@ -13,4 +13,5 @@ y ejecutar el siguiente comando:
 
 # Cliente
 
-Todavia hay que hacerlo
+Una vez ejecutado el contenedor, visitar el siguiente link para ver el cliente:
+> http://localhost:3000/
