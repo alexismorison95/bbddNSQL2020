@@ -1,4 +1,5 @@
 const clientRedis = require('./bbdd');
+
 const db = clientRedis();
 
 
@@ -46,8 +47,6 @@ exports.distANegocio = (req, res) => {
         "lon": req.body.lon
     };
 
-    //db.del('distancia', (err, reply) => { console.log(reply); });
-
     // Cargo en distancia la pos del usuario
     db.geoadd('distancia', parametros.lat, parametros.lon, 'usuario');
 
@@ -60,7 +59,12 @@ exports.distANegocio = (req, res) => {
             // Calculo la distancia
             db.geodist('distancia', 'usuario', parametros.negocio, 'km', (err, reply) => {
 
-                res.status(200).json(reply);
+                if (err) {
+                    res.status(500).json("Error");
+                }
+                else {
+                    res.status(200).json(reply);
+                }
             });
         });
     });

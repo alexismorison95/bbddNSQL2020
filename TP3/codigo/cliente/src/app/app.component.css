@@ -1,0 +1,17 @@
+.col-2 {
+    text-align: right;
+}
+
+.espacio {
+    width: 20px;
+}
+
+.km-input {
+    width: 80px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.table {
+    margin-top: 30px;
+}

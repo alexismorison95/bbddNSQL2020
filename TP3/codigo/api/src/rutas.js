@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get('/iniciar', controladores.iniciarBBDD);
 
-router.get('/radio-km-rubro', controladores.radioKmRubro);
+router.post('/radio-km-rubro', controladores.radioKmRubro);
 
-router.get('/distancia', controladores.distANegocio);
+router.post('/distancia', controladores.distANegocio);
 
 
 module.exports = router;
