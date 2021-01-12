@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 import pymongo
-#import os
+
 
 
 app = Flask(__name__)

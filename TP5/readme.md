@@ -82,6 +82,10 @@ client = pymongo.MongoClient('mongodb://mongo-crypto:27017/')
 
 # Cliente
 
-Una vez ejecutada la API, visitar el siguiente link para ver el cliente:
+Ir a la carpeta
 
-> http://localhost:5000/
+        ./cliente
+
+Y ejecutar:
+
+> $ ng serve
