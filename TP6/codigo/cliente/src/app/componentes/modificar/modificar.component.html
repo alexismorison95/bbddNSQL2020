@@ -1,0 +1,40 @@
+<div class="container">
+
+    <form [formGroup]="peliculaForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+            <label for="input1" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="input1" placeholder="Titulo de pelicula"
+                    formControlName="titulo">
+        </div>
+    
+        <div class="mb-3">
+            <label for="input2" class="form-label">Frase de pelicula</label>
+            <input type="text" class="form-control" id="input2" placeholder="TagLine"
+                    formControlName="frase">
+        </div>
+    
+        <div class="mb-3">
+            <label for="input3" class="form-label">Pagina web</label>
+            <input type="text" class="form-control" id="input3" placeholder="http://captainamerica.marvel.com/"
+                    formControlName="web">
+        </div>
+    
+        <div class="mb-3">
+            <label for="input4" class="form-label">Fecha de salida</label>
+            <input type="text" class="form-control" id="input4" placeholder="2011-07-22"
+                formControlName="fecha">
+        </div>
+
+        <div class="mb-3 btns">
+            <button type="submit" [disabled]="!peliculaForm.valid" class="btn btn-outline-success">
+                Guardar
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-cancel">
+                Cancelar
+            </button>
+        </div>
+        
+    </form>
+
+</div>

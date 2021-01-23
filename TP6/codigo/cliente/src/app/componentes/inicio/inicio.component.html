@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="card mb-3" *ngFor="let pelicula of peliculas">
+
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ pelis.urlImagenes + pelicula.poster_path }}" class="card-img-top" alt="...">
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pelicula.title }}</h5>
+                    <p class="card-text">{{ pelicula.tagline }}</p>
+                    <hr>
+                    <a class="card-text text-decoration-none" href="{{pelicula.homepage}}">{{ pelicula.homepage }}</a>
+                    <hr>
+                    <p class="card-text"><small class="text-muted">Fecha: {{ pelicula.release_date | date}}</small></p>
+                </div>
+
+                <div class="card-footer" *ngIf="auth.isAuthenticated$ | async;">
+                    <button type="button" class="btn btn-outline-primary"
+                            (click)="modificar(pelicula)">
+                        Modificar
+                    </button>
+                    <button type="button" class="btn btn-outline-danger btn-eliminar"
+                            (click)="eliminar(pelicula)">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

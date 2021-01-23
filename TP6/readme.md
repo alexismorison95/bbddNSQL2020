@@ -47,3 +47,7 @@ La idea es hacer una app refactorizada de https://auth0.com/blog/using-python-fl
 
 
 # Cliente
+
+El usuario tiene que estar autentificado para poder modificar las peliculas.
+
+Tutorial: https://auth0.com/blog/complete-guide-to-angular-user-authentication/
