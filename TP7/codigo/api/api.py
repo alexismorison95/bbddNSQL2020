@@ -2,7 +2,7 @@ import requests
 import pymongo
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from firebase import firebase
+from firebase import Firebase
 
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ cors=CORS(app,resources={r"/*": {"origins":"*"}})
 
 def get_mongo_connection():
 
-    cliente = pymongo.MongoClient('mongodb://mongomcu:27017/')
+    cliente = pymongo.MongoClient('mongodb://mongotp7:27017/')
 
     return cliente.mcupelis
 
@@ -19,9 +19,22 @@ def get_mongo_connection():
 
 def get_firebase_connection():
 
-    client = firebase.FirebaseApplication('https://tp7-avengers.firebaseio.com/', None)
+    firebaseConfig = {
+        "apiKey": "AIzaSyCdL3158_TVXacixEu_JmQKQolimdzRBkM",
+        "authDomain": "tp7-avengers.firebaseapp.com",
+        "databaseURL": "https://tp7-avengers.firebaseio.com",
+        "projectId": "tp7-avengers",
+        "storageBucket": "tp7-avengers.appspot.com",
+        "messagingSenderId": "504316915029",
+        "appId": "1:504316915029:web:91af94ccde7fb7ca0853dc",
+        "measurementId": "G-18DR8KP4FX"
+    }
 
-    return client
+    client = Firebase(firebaseConfig)
+    
+    database = client.database()
+
+    return database
 
 
 db_firestore = get_firebase_connection()
@@ -86,4 +99,47 @@ def eliminar(id):
     return jsonify("Pelicula eliminada")
 
 
+# FIREBASE
 
+@app.route('/personajes')
+def getPersonajes():
+
+    personajes = db_firestore.child("personajes").get()
+
+    return jsonify(personajes.val())
+
+
+@app.route('/personajes/<id>', methods=['GET', 'PUT', 'DELETE'])
+def personaje(id):
+
+    if request.method == 'GET':
+
+        result = db_firestore.child("personajes").child(id).get()
+
+        return jsonify(result.val())
+    
+    if request.method == 'DELETE':
+
+        db_firestore.child("personajes").child(id).remove()
+        
+        return jsonify('Eliminado')
+
+    if request.method == 'PUT':
+
+        personaje = request.get_json()
+
+        db_firestore.child("personajes").child(id).update(personaje)
+
+        return jsonify('Modificado')
+
+
+@app.route('/personajes/nuevo', methods=['POST'])
+def personajeNuevo():
+
+    personaje = request.get_json()
+
+    print(personaje['id'])
+
+    db_firestore.child("personajes").child(personaje['id']).set(personaje)
+
+    return jsonify('Agregado')

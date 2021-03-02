@@ -5,7 +5,7 @@ web:
     volumes:
         - .:/api
     links:
-        - "db:mongomcu"
+        - "db:mongotp7"
 
 db:
     image: mongo
