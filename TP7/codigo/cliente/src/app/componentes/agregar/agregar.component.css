@@ -1,0 +1,13 @@
+.container {
+    margin-top: 30px;
+}
+
+.card-footer {
+    text-align: right;
+    height: 100%;
+}
+
+.card-img-top {
+    height: 260px;
+    object-fit: cover;
+}

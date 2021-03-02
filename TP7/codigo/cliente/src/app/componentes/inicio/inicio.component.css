@@ -1,0 +1,26 @@
+.container {
+    margin-top: 30px;
+}
+
+
+.card {
+    width: 600px;
+    margin: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+    float: none;
+}
+
+.card-img-top {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+}
+
+.card-footer {
+    text-align: right;
+}
+
+.btn-eliminar {
+    margin-left: 15px;
+}
