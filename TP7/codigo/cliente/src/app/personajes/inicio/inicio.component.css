@@ -1,0 +1,24 @@
+.container {
+    margin-top: 30px;
+}
+
+.card {
+    margin: 5px;
+}
+
+.card-img-top {
+    height: 300px; 
+    object-fit: scale-down;
+}
+
+.card-footer {
+    text-align: right;
+}
+
+.btn-eliminar {
+    margin-left: 15px;
+}
+
+.btn-editar {
+    margin-left: 15px;
+}

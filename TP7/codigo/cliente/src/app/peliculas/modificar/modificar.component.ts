@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Data } from "../../providers/data";
 import { FormGroup, FormControl } from '@angular/forms';
-import { PeliculasService } from "../../servicios/peliculas.service";
+import { PeliculasService } from "../../servicios/peliculas/peliculas.service";
 
 @Component({
   selector: 'app-modificar',
@@ -20,10 +20,11 @@ export class ModificarComponent implements OnInit {
     fecha: new FormControl(''),
   });
 
-  constructor(public activatedRoute: ActivatedRoute,
-              private data: Data,
-              private pelis: PeliculasService,
-              private router: Router) { 
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    private data: Data,
+    private pelis: PeliculasService,
+    private router: Router) { 
 
     this.pelicula = this.data.storage;
   }
@@ -49,7 +50,7 @@ export class ModificarComponent implements OnInit {
 
       console.log(res);
       
-      this.router.navigate(["inicio"]);
+      this.router.navigate(["peliculas"]);
     });
   }
 

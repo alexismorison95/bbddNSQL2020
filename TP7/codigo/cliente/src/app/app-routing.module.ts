@@ -3,16 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '@auth0/auth0-angular';
 
-import { InicioComponent } from "./componentes/inicio/inicio.component";
-import { AgregarComponent } from "./componentes/agregar/agregar.component";
-import { ModificarComponent } from "./componentes/modificar/modificar.component";
+import { InicioComponent as InicioPeliculas } from "./peliculas/inicio/inicio.component";
+import { AgregarComponent as AgregarPeliculas } from "./peliculas/agregar/agregar.component";
+import { ModificarComponent as ModificarPeliculas } from "./peliculas/modificar/modificar.component";
+
+import { InicioComponent as InicioPersonajes } from "./personajes/inicio/inicio.component";
+import { AgregarComponent as AgregarPersonajes } from "./personajes/agregar/agregar.component";
+import { ModificarComponent as ModificarPersonajes } from "./personajes/modificar/modificar.component";
+import { MasInfoComponent } from "./personajes/mas-info/mas-info.component";
 
 const routes: Routes = [
-  {path: '', redirectTo:'/inicio', pathMatch:'full'},
-  {path: 'inicio', component: InicioComponent},
-  {path: 'agregar', component: AgregarComponent, canActivate: [AuthGuard]},
-  {path: 'modificar', component: ModificarComponent, canActivate: [AuthGuard]},
-  {path: '**', redirectTo: '/inicio'}
+  {path: '', redirectTo:'/peliculas', pathMatch:'full'},
+  {path: 'peliculas', component: InicioPeliculas},
+  {path: 'peliculas/agregar', component: AgregarPeliculas, canActivate: [AuthGuard]},
+  {path: 'peliculas/modificar', component: ModificarPeliculas, canActivate: [AuthGuard]},
+
+  {path: 'personajes', component: InicioPersonajes},
+  {path: 'personajes/agregar', component: AgregarPersonajes, canActivate: [AuthGuard]},
+  {path: 'personajes/modificar', component: ModificarPersonajes, canActivate: [AuthGuard]},
+  {path: 'personajes/info', component: MasInfoComponent},
+  
+  {path: '**', redirectTo: '/peliculas'}
 ];
 
 @NgModule({

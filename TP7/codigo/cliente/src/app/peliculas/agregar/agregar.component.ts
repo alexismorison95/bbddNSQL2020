@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliculasService } from "../../servicios/peliculas.service";
+import { PeliculasService } from "../../servicios/peliculas/peliculas.service";
 import Swal from 'sweetalert2';
 
 @Component({

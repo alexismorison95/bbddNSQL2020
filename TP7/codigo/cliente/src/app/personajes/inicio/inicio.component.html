@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Filtrar por pelicula" #buscarPeli
+                (keyup)="buscar(buscarPeli)">
+    </div>
+
+    <div class="card-columns d-flex flex-wrap">
+
+        <div *ngFor="let personaje of personajes" class="card" style="width: 21rem;"> 
+
+            <img src="{{ personaje.img }}" class="card-img-top" alt="...">
+    
+            <div class="card-body">
+                <h5 class="card-title">{{ personaje.hero }}</h5>
+                <p class="card-text">{{ personaje.historia.substring(0, 100) }}...</p>
+            </div>
+    
+            <div class="card-footer">
+    
+                <button type="button" class="btn btn-outline-success"
+                        (click)="masInfo(personaje)">
+                    Mas info
+                </button>
+    
+                <button *ngIf="auth.isAuthenticated$ | async;" type="button" class="btn btn-outline-primary btn-editar"
+                        (click)="modificar(personaje)">
+                    Modificar
+                </button>
+                <button *ngIf="auth.isAuthenticated$ | async;" type="button" class="btn btn-outline-danger btn-eliminar"
+                        (click)="eliminar(personaje)">
+                    Eliminar
+                </button>
+            </div>
+    
+        </div>
+
+    </div>
+    
+</div>

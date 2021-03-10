@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliculasService } from "../../servicios/peliculas.service";
+import { PeliculasService } from "../../servicios/peliculas/peliculas.service";
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { Data } from "../../providers/data";
@@ -29,8 +29,6 @@ export class InicioComponent implements OnInit {
   listarPeliculas() {
 
     this.pelis.getPeliculas().subscribe(res => {
-
-      console.log(res[0]);
       
       this.peliculas = res;
     });
@@ -40,7 +38,7 @@ export class InicioComponent implements OnInit {
 
     this.data.storage = pelicula;
 
-    this.router.navigate(["modificar"]);
+    this.router.navigate(["peliculas/modificar"]);
   }
 
   eliminar(pelicula: any) {

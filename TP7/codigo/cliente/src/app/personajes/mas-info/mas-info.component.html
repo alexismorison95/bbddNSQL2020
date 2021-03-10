@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="card"> 
+
+        <img src="{{ personaje.img }}" class="card-img-top" alt="...">
+
+        <div class="card-body">
+            <h5 class="card-title">{{ personaje.hero }}</h5>
+            <p class="card-text">Historia: {{ personaje.historia }}</p>
+            <hr>
+            <p class="card-text">Nombre real: {{ personaje.name }}</p>
+            <hr>
+            <h6 class="card-title">Peliculas</h6>
+            <ul class="list-group">
+                <li *ngFor="let pelicula of personaje.peliculas" class="list-group-item">
+                    {{ pelicula }}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

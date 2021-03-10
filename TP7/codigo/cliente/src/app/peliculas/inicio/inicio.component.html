@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container1 card-columns d-flex flex-wrap">
 
     <div class="card mb-3" *ngFor="let pelicula of peliculas">
 
@@ -12,9 +12,11 @@
                     <h5 class="card-title">{{ pelicula.title }}</h5>
                     <p class="card-text">{{ pelicula.tagline }}</p>
                     <hr>
-                    <a class="card-text text-decoration-none" href="{{pelicula.homepage}}">{{ pelicula.homepage }}</a>
+                    <a class="card-text text-decoration-none" 
+                        href="{{pelicula.homepage}}">{{ pelicula.homepage }}</a>
                     <hr>
-                    <p class="card-text"><small class="text-muted">Fecha: {{ pelicula.release_date | date}}</small></p>
+                    <p class="card-text"><small 
+                        class="text-muted">Fecha: {{ pelicula.release_date | date}}</small></p>
                 </div>
 
                 <div class="card-footer" *ngIf="auth.isAuthenticated$ | async;">

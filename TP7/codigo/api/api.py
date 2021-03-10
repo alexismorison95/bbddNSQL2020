@@ -101,7 +101,7 @@ def eliminar(id):
 
 # FIREBASE
 
-@app.route('/personajes')
+@app.route('/api/personajes')
 def getPersonajes():
 
     personajes = db_firestore.child("personajes").get()
@@ -109,7 +109,7 @@ def getPersonajes():
     return jsonify(personajes.val())
 
 
-@app.route('/personajes/<id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/api/personajes/<id>', methods=['GET', 'PUT', 'DELETE'])
 def personaje(id):
 
     if request.method == 'GET':
@@ -133,13 +133,11 @@ def personaje(id):
         return jsonify('Modificado')
 
 
-@app.route('/personajes/nuevo', methods=['POST'])
+@app.route('/api/personajes/nuevo', methods=['POST'])
 def personajeNuevo():
 
     personaje = request.get_json()
 
-    print(personaje['id'])
-
     db_firestore.child("personajes").child(personaje['id']).set(personaje)
 
-    return jsonify('Agregado')
+    return jsonify(personaje)
